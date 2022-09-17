@@ -35,6 +35,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-#local docker-compose
-.docker-compose.yml
-.env_local
+
+.DS_Store
