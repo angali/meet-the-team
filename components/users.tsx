@@ -35,8 +35,10 @@ const Users: React.FC<IProps> = () => {
   const { loading, users, errorMessage, view, sort, search, page } = state;
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // 👇 Initially load users from the server
     loadUsers();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // sort users based on the selected sort value
