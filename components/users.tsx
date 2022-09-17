@@ -109,6 +109,7 @@ const Users: React.FC<IProps> = () => {
     );
   };
 
+  // Toolbar of the page containing search box, sort and view mode buttons
   const toolbar = (): JSX.Element => (
     <React.Fragment>
       {/* Large screen toolbar */}
@@ -141,10 +142,11 @@ const Users: React.FC<IProps> = () => {
         </div>
 
         <div className="sm-toolbar-btn-group">
+          {/* Sort button */}
           <button aria-label="sort" onClick={onChangeModeSort}>
             {sort === "az" ? azIcon() : zaIcon()}
           </button>
-
+          {/* View Mode button to switch between grid view and list view */}
           <button
             aria-label="view mode"
             className="view-mode-btn"

@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { IUser } from "../models/user";
 import { callIcon, emailIcon } from "./svgIcons";
+
 interface IProps {
   index: number;
   isSmallScreen: boolean;
@@ -36,9 +37,11 @@ const User: React.FC<IProps> = ({
           />
         </div>
       </div>
+      {/* Footer of the card that shows city, email and phone/mobile( cell ) */}
       <div className="grid-item-footer">
         <div className="grid-item-city">{user.location.city}</div>
 
+        {/* Shows city, email and phone/mobile (cell) */}
         <div className="grid-item-contact">
           {user.email && (
             <a href={`mailto:${user.email}`}>
