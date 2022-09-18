@@ -1,14 +1,11 @@
-Meet The Team app is SPA that shows a list of 50 random (or more) users from https://randomuser.me/api.
+Meet The Team app is SPA  (Single-page application) that fetches and shows list of 50 random users from https://randomuser.me/api.
 
 Features:
-- switch between grid and list view.
-- sorting by name (ascending and descending)
-- search by name functionality.
+- Switch between grid and list view.
+- Sort by name (ascending and descending)
+- Search by name functionality.
 - Responsive design.
 
-Note:
-The App is recreated a display of image cards from this Figma file:
-https://www.figma.com/file/YFz4WAqi9ebuvCPESpIP2q/Frontend-Assignment
 
 ## Getting Started
 

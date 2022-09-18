@@ -5,6 +5,8 @@ body {
   background-color: #ebe9e4;
 }
 
+/* loading page progress bar will be shown on top of all pages */
+/* appears when switching between pages and internal links */
 #nprogress .bar {
   height: 3px !important;
   background: red !important;
@@ -28,6 +30,7 @@ body {
   margin: 0 71px;
 }
 
+/* loading progress bar icon */
 .loading-progress {
   display: flex;
   justify-content: center;
@@ -55,10 +58,13 @@ body {
   text-align: center;
   margin: auto;
 }
+
+/* small screen toolbar */
 .sm-toolbar {
   display: none;
 }
 
+/* large screen toobal */
 .lg-toolbar {
   position: relative;
   display: flex;
@@ -68,6 +74,7 @@ body {
   gap: 18px;
 }
 
+/* Search icon inside the search box */
 .has-search .search-box-icon {
   position: absolute;
   z-index: 2;
@@ -91,6 +98,7 @@ body {
 .lg-toolbar button :hover {
   cursor: pointer;
 }
+
 .sm-toolbar input[type="search"],
 .lg-toolbar input[type="search"] {
   border: 0;
@@ -111,6 +119,8 @@ body {
   outline: none;
   border: 0px;
 }
+
+/* switch view mode icon */
 .view-mode-btn {
   margin-left: auto;
 }
@@ -310,6 +320,7 @@ body {
   background-size: cover;
 }
 
+/* small screen breakpoint */
 @media only screen and (max-width: 600px) {
   .lg-toolbar {
     display: none;
