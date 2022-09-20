@@ -44,13 +44,13 @@ const User: React.FC<IProps> = ({
         {/* Shows city, email and phone/mobile (cell) */}
         <div className="grid-item-contact">
           {user.email && (
-            <a href={`mailto:${user.email}`}>
+            <a href={`mailto:${user.email}`} data-testid='email'>
               {emailIcon(isSmallScreen ? 14 : 21, isSmallScreen ? 14 : 21)}
             </a>
           )}
 
           {(user.phone || user.cell) && (
-            <a href={`tel:${user.phone || user.cell}`}>
+            <a href={`tel:${user.phone || user.cell}`} data-testid='tel'>
               {callIcon(isSmallScreen ? 14 : 21, isSmallScreen ? 14 : 21)}
             </a>
           )}
@@ -65,8 +65,8 @@ const User: React.FC<IProps> = ({
       {/* Image of the user */}
       <div className="list-item-avatar">
         <Image
-          src={user.picture.large}
-          alt={user.name.first}
+            src={`${isSmallScreen ? user.picture.medium : user.picture.large}`}
+            alt={user.name.first}
           title={user.name.first}
           width="80px"
           height="80px"
@@ -82,10 +82,10 @@ const User: React.FC<IProps> = ({
 
         {/* Contact information of the user (email, phone/cell) */}
         <div className="list-item-contact">
-          {user.email && <a href={`mailto:${user.email}`}>{emailIcon()}</a>}
+          {user.email && <a href={`mailto:${user.email}`} data-testid='email'>{emailIcon()}</a>}
 
           {(user.phone || user.cell) && (
-            <a href={`tel:${user.phone || user.cell}`}>{callIcon()}</a>
+            <a href={`tel:${user.phone || user.cell}`} data-testid='tel'>{callIcon()}</a>
           )}
         </div>
       </div>

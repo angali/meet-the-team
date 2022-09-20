@@ -51,7 +51,7 @@ const Users: React.FC<IProps> = () => {
           a.name.first.toLowerCase() < b.name.first.toLowerCase() ? 1 : -1
         );
 
-  // filter the users based on the search tearm
+  // filter the users based on the search term
   const filterUsers = (sortedUsers: IUser[]) =>
     search
       ? (sortedUsers.filter((user: IUser) =>
