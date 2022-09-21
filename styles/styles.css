@@ -125,6 +125,12 @@ body {
   margin-left: auto;
 }
 
+.users-container ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
 /* Grid mode view */
 .grid-view {
   display: grid;

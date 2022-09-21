@@ -19,7 +19,7 @@ const User: React.FC<IProps> = ({
 }) => {
   // Show the user list as Grid view
   const gridMode = () => (
-    <div className={`grid-item-container grid-item-background-${index % 5}`}>
+    <li className={`grid-item-container grid-item-background-${index % 5}`}>
       <div className="grid-item-header">
         <h2>{user.name.first}</h2>
       </div>
@@ -44,29 +44,29 @@ const User: React.FC<IProps> = ({
         {/* Shows city, email and phone/mobile (cell) */}
         <div className="grid-item-contact">
           {user.email && (
-            <a href={`mailto:${user.email}`} data-testid='email'>
+            <a href={`mailto:${user.email}`} data-testid="email">
               {emailIcon(isSmallScreen ? 14 : 21, isSmallScreen ? 14 : 21)}
             </a>
           )}
 
           {(user.phone || user.cell) && (
-            <a href={`tel:${user.phone || user.cell}`} data-testid='tel'>
+            <a href={`tel:${user.phone || user.cell}`} data-testid="tel">
               {callIcon(isSmallScreen ? 14 : 21, isSmallScreen ? 14 : 21)}
             </a>
           )}
         </div>
       </div>
-    </div>
+    </li>
   );
 
   // show the user list as List view
   const listMode = () => (
-    <div className={`list-item-container list-item-background-${index % 5}`}>
+    <li className={`list-item-container list-item-background-${index % 5}`}>
       {/* Image of the user */}
       <div className="list-item-avatar">
         <Image
-            src={`${isSmallScreen ? user.picture.medium : user.picture.large}`}
-            alt={user.name.first}
+          src={`${isSmallScreen ? user.picture.medium : user.picture.large}`}
+          alt={user.name.first}
           title={user.name.first}
           width="80px"
           height="80px"
@@ -82,14 +82,20 @@ const User: React.FC<IProps> = ({
 
         {/* Contact information of the user (email, phone/cell) */}
         <div className="list-item-contact">
-          {user.email && <a href={`mailto:${user.email}`} data-testid='email'>{emailIcon()}</a>}
+          {user.email && (
+            <a href={`mailto:${user.email}`} data-testid="email">
+              {emailIcon()}
+            </a>
+          )}
 
           {(user.phone || user.cell) && (
-            <a href={`tel:${user.phone || user.cell}`} data-testid='tel'>{callIcon()}</a>
+            <a href={`tel:${user.phone || user.cell}`} data-testid="tel">
+              {callIcon()}
+            </a>
           )}
         </div>
       </div>
-    </div>
+    </li>
   );
 
   return view === "grid" ? gridMode() : listMode();

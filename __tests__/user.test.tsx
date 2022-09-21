@@ -1,4 +1,4 @@
-// __tests__/index.test.jsx
+// __tests__/user.test.jsx
 import { render, screen, waitFor } from "@testing-library/react";
 import User from "../components/user";
 import "@testing-library/jest-dom";

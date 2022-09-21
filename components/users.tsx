@@ -2,44 +2,35 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { IUser } from "../models/user";
-import { UserService } from "../services/UserService";
 import User from "./user";
 import { azIcon, zaIcon, gridIcon, listIcon } from "./svgIcons";
-import { useWindowSize } from "../hooks/useWindowSize";
 
-interface IProps {}
-
-interface IState {
+interface IProps {
   loading: boolean;
   users: IUser[];
   errorMessage: string;
+  isSmallScreen: boolean;
+}
+
+interface IState {
   sort: "az" | "za";
   view: "grid" | "list";
   search: string;
-  page: number;
 }
 
-const Users: React.FC<IProps> = () => {
-  const { isSmallScreen } = useWindowSize();
-
+const Users: React.FC<IProps> = ({
+  loading,
+  users,
+  errorMessage,
+  isSmallScreen
+}) => {
   const [state, setState] = useState<IState>({
-    loading: true,
-    users: [] as IUser[],
-    errorMessage: "",
     sort: "az",
     view: "grid",
-    search: "",
-    page: 0
+    search: ""
   });
 
-  const { loading, users, errorMessage, view, sort, search, page } = state;
-
-  useEffect(() => {
-    // 👇 Initially load users from the server
-    loadUsers();
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const { view, sort, search } = state;
 
   // sort users based on the selected sort value
   const sortUsers = () =>
@@ -61,29 +52,6 @@ const Users: React.FC<IProps> = () => {
         ) as IUser[])
       : users;
 
-  // load users from the server
-  const loadUsers = async () => {
-    try {
-      setState(state => ({ ...state, loading: true }));
-
-      const response = await UserService.getUsers(page);
-      let usersData = [...users, ...response.data.usersData.results];
-
-      setState(state => ({
-        ...state,
-        users: usersData || [],
-        loading: false,
-        errorMessage: ""
-      }));
-    } catch (error) {
-      setState(state => ({
-        ...state,
-        loading: false,
-        errorMessage: "Can not read list of users"
-      }));
-    }
-  };
-
   /* render list of the users  */
   const usersList = (): JSX.Element => {
     const sortedUsers = sortUsers();
@@ -91,11 +59,15 @@ const Users: React.FC<IProps> = () => {
 
     // Handle empty list (no user to display)
     if ((!filteredUsers || !filteredUsers.length) && !loading && !errorMessage)
-      return <div className="alert-warning">No user found!</div>;
+      return (
+        <div data-testid="alert-warning" className="alert-warning">
+          No user found!
+        </div>
+      );
 
     //show user list
     return (
-      <div className={`${view === "grid" ? "grid-view" : "list-view"}`}>
+      <ul className={`${view === "grid" ? "grid-view" : "list-view"}`}>
         {filteredUsers.map((user, index) => (
           <User
             key={index}
@@ -105,7 +77,7 @@ const Users: React.FC<IProps> = () => {
             isSmallScreen={isSmallScreen}
           />
         ))}
-      </div>
+      </ul>
     );
   };
 
@@ -114,19 +86,29 @@ const Users: React.FC<IProps> = () => {
     <React.Fragment>
       {/* Large screen toolbar */}
       <div className="lg-toolbar">
-        <button aria-label="sort" onClick={onChangeModeSort}>
+        <button
+          data-testid="sort-btn"
+          aria-label="sort"
+          onClick={onChangeModeSort}
+        >
           {sort === "az" ? azIcon() : zaIcon()}
         </button>
 
         {/* <!-- Search box --> */}
         <div className="has-search">
           <span className="fa fa-search search-box-icon"></span>
-          <input type="search" placeholder="Search..." onChange={onSearch} />
+          <input
+            data-testid="search-box"
+            type="search"
+            placeholder="Search..."
+            onChange={onSearch}
+          />
         </div>
 
         <button
           aria-label="view mode"
           className="view-mode-btn"
+          data-testid="view-mode-btn"
           onClick={onChangeViewMode}
         >
           {view === "grid" ? gridIcon() : listIcon()}
