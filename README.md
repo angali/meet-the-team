@@ -31,6 +31,15 @@ npm run dev
 yarn dev
 ```
 
+To run unit tests:
+
+```bash
+npm run test:unit
+# or
+yarn test:unit
+```
+
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
