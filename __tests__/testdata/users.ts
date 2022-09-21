@@ -1,5 +1,9 @@
 import { IUser } from "../../models/user";
 // Test data to check testing scenarios.
+export const az_firstItem = "Albert";
+export const az_lastItem = "سپهر";
+export const no_user_found_msg = "No user found!";
+
 export const testUsers: IUser[] = [
   {
     gender: "male",

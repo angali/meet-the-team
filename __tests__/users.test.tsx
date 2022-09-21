@@ -3,7 +3,12 @@ import { render, screen, within, fireEvent } from "@testing-library/react";
 import Users from "../components/users";
 import "@testing-library/jest-dom";
 import { IUser } from "../models/user";
-import { testUsers } from "./testdata/users";
+import {
+  testUsers,
+  az_firstItem,
+  az_lastItem,
+  no_user_found_msg
+} from "./testdata/users";
 
 const usersData: IUser[] = testUsers;
 
@@ -34,8 +39,8 @@ describe("Users Component", () => {
     let listItems = getAllByRole("heading");
     // check first and last item
     expect(listItems).toHaveLength(listItems.length);
-    expect(listItems[0]).toHaveTextContent("Albert");
-    expect(listItems[listItems.length - 1]).toHaveTextContent("سپهر");
+    expect(listItems[0]).toHaveTextContent(az_firstItem);
+    expect(listItems[listItems.length - 1]).toHaveTextContent(az_lastItem);
   });
 
   it("check sort - za", async () => {
@@ -48,8 +53,8 @@ describe("Users Component", () => {
     let listItems = getAllByRole("heading");
     // check first and last item
     expect(listItems).toHaveLength(listItems.length);
-    expect(listItems[0]).toHaveTextContent("سپهر");
-    expect(listItems[listItems.length - 1]).toHaveTextContent("Albert");
+    expect(listItems[0]).toHaveTextContent(az_lastItem);
+    expect(listItems[listItems.length - 1]).toHaveTextContent(az_firstItem);
   });
 
   it("check view mode - grid", async () => {
@@ -89,6 +94,6 @@ describe("Users Component", () => {
     fireEvent.change(searchBox, { target: { value: "vvvvvvv" } });
 
     let result = screen.getByTestId("alert-warning");
-    expect(result).toHaveTextContent("No user found!");
+    expect(result).toHaveTextContent(no_user_found_msg);
   });
 });
