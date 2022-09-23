@@ -59,7 +59,7 @@ const Home: NextPage = () => {
   return (
     <Layout>
       <React.Fragment>
-        <h1 className="page-title">Meet the Tean</h1>
+        <h1 className="page-title">Meet the Team</h1>
         <Users
           loading={loading}
           users={users}
