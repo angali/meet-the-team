@@ -7,7 +7,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test:unit": "jest --watch"
+    "test:unit": "jest --watch",
+
+    "test:static": "yarn lint && yarn tsc",
+    "test:jest": "yarn jest",
+    "test:e2e": "(amplify mock api &) && wait-on http-get://localhost:20002 && kill-port 3000 && (yarn dev &) && wait-on http-get://localhost:3000 && cypress run --env PORT=3000",
+    "test:e2e:dev": "(amplify mock api &) && wait-on http-get://localhost:20002 && kill-port 3000 && (yarn dev &) && wait-on http-get://localhost:3000 && cypress open --env PORT=3000",
+    "test": "yarn test:static && yarn test:jest"
+
   },
   "dependencies": {
     "@types/nprogress": "^0.2.0",
