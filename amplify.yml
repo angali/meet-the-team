@@ -3,14 +3,13 @@ frontend:
   phases:
     preBuild:
       commands:
-        - mkdir -p ./frontend/build  
-        - cd frontend
+        - mkdir -p build  
         - yarn install
     build:
       commands:
         - yarn run test && yarn run build
   artifacts:
-    baseDirectory: ./frontend/build
+    baseDirectory: build
     files:
       - "**/*"
   cache:
