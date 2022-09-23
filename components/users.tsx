@@ -171,7 +171,7 @@ const Users: React.FC<IProps> = ({
         <React.Fragment>
           <div className="loading-progress">
             <Image
-              src="/static/images/loading.gif"
+              src="/images/loading.gif"
               width="100px"
               height="100px"
               alt="loading..."

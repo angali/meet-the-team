@@ -184,31 +184,31 @@ body {
 
 /* grid item view backgrounds*/
 .grid-item-background-0 {
-  background: url("/static/images/card0.png");
+  background: url("/images/card0.png");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 100% 100%;
 }
 .grid-item-background-1 {
-  background: url("/static/images/card1.png");
+  background: url("/images/card1.png");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 100% 100%;
 }
 .grid-item-background-2 {
-  background: url("/static/images/card2.png");
+  background: url("/images/card2.png");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
 }
 .grid-item-background-3 {
-  background: url("/static/images/card3.png");
+  background: url("/images/card3.png");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 100% 100%;
 }
 .grid-item-background-4 {
-  background: url("/static/images/card4.png");
+  background: url("/images/card4.png");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 100% 100%;
@@ -301,27 +301,27 @@ body {
 
 /* list item view backgrounds*/
 .list-item-background-0 {
-  background: url("/static/images/list0.png");
+  background: url("/images/list0.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
 .list-item-background-1 {
-  background: url("/static/images/list1.png");
+  background: url("/images/list1.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
 .list-item-background-2 {
-  background: url("/static/images/list2.png");
+  background: url("/images/list2.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
 .list-item-background-3 {
-  background: url("/static/images/list3.png");
+  background: url("/images/list3.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
 .list-item-background-4 {
-  background: url("/static/images/list4.png");
+  background: url("/images/list4.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
